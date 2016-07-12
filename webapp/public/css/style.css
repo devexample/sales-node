@@ -40,3 +40,7 @@ main {
 .ui.form .ui.message {
 	display: block;
 }
+
+.ui.compact.menu .item:last-child {
+	border-radius: .28571429rem;
+}

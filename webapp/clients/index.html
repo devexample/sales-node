@@ -1,4 +1,4 @@
-<html ng-app="app" ng-controller="MainController as main">
+<html ng-app="app" ng-controller="MainController as app">
 <head>
 	<meta charset="UTF-8">
 	
@@ -15,7 +15,7 @@
 	<script type="text/javascript" src="/public/libs/angular_ui_router/angular-ui-router.min.js"></script>
 	<script type="text/javascript" src="/public/libs/oc_lazy_load/ocLazyLoad.min.js"></script>
 	<script type="text/javascript" src="/public/js/clients.routes.js"></script>
-	<!-- App routes -->
+	<!-- Validator -->
 	<script type="text/javascript" src="/public/libs/angular_validator/angular-validator.min.js"></script>
 	<!-- App module -->
 	<script type="text/javascript" src="/public/js/app.module.js"></script>
@@ -26,7 +26,7 @@
 		<div class="ui inverted secondary menu">
 			<a href="/" class=" header item">Sales Example</a>
 			<div class="right menu item">
-				<a href="" class="header item">User name</a>
+				<a href="" class="header item">{{app.user.name}}</a>
 			</div>
 		</div>
 	</header>
