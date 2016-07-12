@@ -1,2 +1,5 @@
 # Sales example for MEAN
-You'll need to do a "npm install" to run this project
+## How to install?
+This application is bluided in Node JS 4+,
+before to run the application you will need
+to do a "npm install" to install all dependencies
