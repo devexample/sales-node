@@ -1,10 +1,7 @@
-// var auth = require("./server/auth");
 var config = require("./server/config");
 var express = require("express");
 
 var app = express();
-
-// console.log("Hash for 123 is: "+ auth.hash("123"));
 
 // API's Router
 app.use( require("./server/router-api") );

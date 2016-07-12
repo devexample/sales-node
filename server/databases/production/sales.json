@@ -1,9 +1,9 @@
 {
     "provider" : "MongoDB",
-    "server": "localhost",
-    "port": 27017,
-    "name": "sale_example",
+    "server": "ds031948.mlab.com",
+    "port": 31948,
+    "name": "sales_example",
     "security": false,
-    "user": "admin",
-    "password": "123"
+    "user": "sales_example_app",
+    "password": "6693777d3d78130e441df35127247758b65fba05faf0ef3e631c30c1d5311fa9"
 }
