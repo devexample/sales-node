@@ -1,5 +1,5 @@
 {
-  "name": "Sales Example",
+  "name": "SalesExample",
   "description": "Sales Example",
   "dependencies": {
     "body-parser": "^1.15.2",
