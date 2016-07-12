@@ -1,5 +1,5 @@
 {
-	"developerMode": true,
+	"developMode": true,
 	"port": 3000,
 	"secretString": "SalesExample"
 }
