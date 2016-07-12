@@ -1,0 +1,26 @@
+<div ng-controller="ClientsListController">
+	<div class="ui basic segment layout _loader" ng-if="__httpStack.length">
+		<div class="ui active inverted dimmer">
+			<div class="ui text loader">Loading...</div>
+		</div>
+	</div>
+
+	<div class="ui error message" ng-if="error">
+		{{error}}
+	</div>
+
+	<div align="right">
+		<a href="#/add" class="ui teal button">New client</a>
+	</div>
+	<br>
+
+	<div class="ui very relaxed divided list">
+		<div class="ui item" ng-repeat="client in clients | orderBy:'name'">
+			<div class="right floated content">
+				<a href="#/{{client._id}}" class="ui button">Edit</a>
+			</div>
+			<div class="header">{{client.name}}</div>
+			<div class="description">{{client.email}}</div>
+		</div>
+	</div>
+</div>

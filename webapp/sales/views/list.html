@@ -1,0 +1,53 @@
+<div ng-controller="SalesListController">
+	<div class="ui basic segment layout _loader" ng-if="__httpStack.length">
+		<div class="ui active inverted dimmer">
+			<div class="ui text loader">Loading content...</div>
+		</div>
+	</div>
+
+	<div class="ui error message" ng-if="error">
+		{{error}}
+	</div>
+
+	<div class="ui two column grid">
+		<div class="column">
+			<select ng-model="client" ng-options="client._id as client.name for client in clients | orderBy:'name'" ng-change="loadClientSales(client)">
+				<option value="">Select client</option>
+			</select>
+		</div>
+		<div class="column" align="right">
+			<a href="#/add" class="ui teal button">New sale</a>
+		</div>
+	</div>
+
+	<div class="ui info message" ng-show="client && !sales.length && !error">
+		There's no sales registered for this client
+	</div>
+
+	<div class="ui very relaxed divided selection list">
+		<div class="item" ng-repeat="sale in sales" ng-click="showDeteail($index)">
+			<div class="header">Total due: {{sale.total | currency}}</div>
+			<div class="description">Total products: {{sale.products.length}}</div>
+			<table class="ui celled table" ng-show="selectedSale == $index">
+				<thead>
+					<th>Product</th>
+					<th width="120px">Price</th>
+					<th width="100px">Quantity</th>
+					<th width="120px">Total</th>
+				</thead>
+				<tbody>
+					<tr ng-repeat="product in sale.products">
+						<td>{{product.name}}</td>
+						<td width="120px" class="right aligned">{{product.price | currency:'$'}}</td>
+						<td width="60px" class="right aligned">{{product.quantity}}</td>
+						<td width="120px" class="right aligned">{{(product.price * product.quantity) | currency:'$'}}</td>
+					</tr>
+					<tr>
+						<td colspan="3" class="right aligned"><h4>Total due:</h4></td>
+						<td class="right aligned">{{sale.total | currency:'$'}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
