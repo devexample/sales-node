@@ -5,7 +5,7 @@
 		return {
 			request: function( config ){
 				config.headers = config.headers || {};
-				config.headers.token = localStorage.getItem("tokenSalesExample") || sessionStorage.getItem("tokenSalesExample");
+				config.headers.token = localStorage.getItem("SalesExample_token") || sessionStorage.getItem("SalesExample_token");
 				return config;
 			}
 		};
