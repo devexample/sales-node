@@ -1,0 +1,55 @@
+<html ng-app="app" ng-controller="SingInController as singIn">
+<head>
+	<meta charset="UTF-8">
+	
+	<title>Sales Example</title>
+
+	<!-- Semantic UI  -->
+	<link rel="stylesheet" type="text/css" href="/public/libs/semantic/semantic.min.css">
+	<style type="text/css">
+		.table { display: table; height: 100%; width: 100%;}
+		.table .cell { display: table-cell; vertical-align: middle; }
+		.ui.segment { margin: auto; max-width: 400px; }
+		.ui.form { margin: auto; max-width: 300px; }
+		.ui.message { display: block !important; }
+	</style>
+	
+	<!-- Angular JS -->
+	<script type="text/javascript" src="/public/libs/angular/angular.min.js"></script>
+	<!-- Validator -->
+	<script type="text/javascript" src="/public/libs/angular_validator/angular-validator.min.js"></script>
+	<!-- Sing in Controller -->
+	<script type="text/javascript" src="/public/js/sing-in.controller.js"></script>
+	
+</head>
+<body>
+	<div class="table">
+		<div class="cell">
+			<div class="ui segment">
+				<form class="ui form" name="singInForm" angular-validator angular-validator-submit="singIn.submit()" novalidate>
+					<div class="field" align="center">
+						<h1>Sales Example</h1>
+						<label for=""></label>
+					</div>
+					<div class="field">
+						<label for="">Email</label>
+						<input type="email" ng-model="singIn.user.email" name="email" required>
+					</div>
+					<div class="field">
+						<label for="">Password</label>
+						<input type="password" ng-model="singIn.user.password" name="password" required>
+					</div>
+					<div class="field">
+						<button class="ui fluid teal button">Sign In</button>
+					</div>
+					<div class="field" ng-show="error">
+						<div class="ui error message">
+							{{error}}
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<div ng-controller="SalesFormController">
+	<div class="ui basic segment layout _loader" ng-if="__httpStack.length">
+		<div class="ui active inverted dimmer">
+			<div class="ui text loader">Loading...</div>
+		</div>
+	</div>
+
+	<div class="ui error message" ng-if="error">
+		{{error}}
+	</div>
+
+	<form class="ui segment form" name="saleForm" angular-validator angular-validator-submit="submit()" novalidate>
+		<div class="field">
+			<label for="">Client</label>
+			<select ng-model="sale.client" ng-options="client._id as client.name for client in clients | orderBy:'name'" name="client" required>
+				<option value="">Select client...</option>
+			</select>
+		</div>
+		<div class="field">
+			<table class="ui celled top attached table">
+				<thead>
+					<th>Product</th>
+					<th width="120px">Price</th>
+					<th width="100px">Quantity</th>
+					<th width="120px">Total</th>
+				</thead>
+				<tbody>
+					<tr ng-repeat="product in sale.products">
+						<td>{{product.name}}</td>
+						<td width="120px" class="right aligned">{{product.price | currency:'$'}}</td>
+						<td width="60px" class="right aligned">{{product.quantity}}</td>
+						<td width="120px" class="right aligned">{{(product.price * product.quantity) | currency:'$'}}</td>
+					</tr>
+					<tr>
+						<td colspan="3" class="right aligned"><h4>Total due:</h4></td>
+						<td class="right aligned">{{(sale.total || 0) | currency:'$'}}</td>
+					</tr>
+				</tbody>
+			</table>
+			<!-- <form name="productForm" angular-validator angular-validator-submit="addProductToSale( product )"> -->
+				<table class="ui celled bottom attached table">
+					<tbody>
+						<tr ng-show="addProduct">
+							<td ng-class="{'error': productError}">
+								<select ng-model="product" ng-options="product.name for product in products | orderBy:'name'">
+									<option value="">Select product...</option>
+								</select>
+							</td>
+							<td width="120px" class="right aligned">{{product.price | currency:'$'}}</td>
+							<td width="100px" ng-class="{'error': productQuantityError}"><input type="number" ng-model="product.quantity" min="0" name="quantity"></td>
+							<!-- <td width="120px" class="right aligned">{{product.total | currency:'$'}}</td> -->
+							<td width="120px" class="center aligned">
+								<button type="button" ng-click="addProductToSale( product )" class="ui teal button">Add</button>
+							</td>
+						</tr>
+						<tr ng-if="!addProduct">
+							<td colspan="4">
+								<a href="" ng-click="showAddProduct(true)"><i>
+									<i class="plus icon"></i> Add product...
+								</i></a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			<!-- </form> -->
+		</div>
+
+		<div class="field">
+			<div class="ui error message" ng-show="saleProductsError">
+				{{saleProductsError}}
+			</div>
+		</div>
+
+		<div class="field" align="right">
+			<a href="#/" class="ui button">Cancel</a>
+			<button class="ui negative button" ng-click="delete()" ng-if="product._id">Delete</button>
+			<button class="ui positive button">Save</button>
+		</div>
+		
+
+		<div class="ui active inverted dimmer" ng-if="loading">
+			<div class="ui text loader">Loading content...</div>
+		</div>
+	</form>
+</div>

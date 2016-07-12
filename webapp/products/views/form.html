@@ -1,0 +1,33 @@
+<div ng-controller="ProductsFormController">
+	<div class="ui basic segment layout _loader" ng-if="__httpStack.length">
+		<div class="ui active inverted dimmer">
+			<div class="ui text loader">Loading...</div>
+		</div>
+	</div>
+
+	<div class="ui error message" ng-if="error">
+		{{error}}
+	</div>
+	
+	<form class="ui segment form" name="productForm" angular-validator angular-validator-submit="submit()" novalidate>
+		<div class="fields">
+			<div class="twelve wide field">
+				<label for="">Name</label>
+				<input type="text" ng-model="product.name" name="_name" required>
+			</div>
+			<div class="four wide field">
+				<label for="">Price</label>
+				<input type="text" ng-model="product.price" name="price" required validator="checkPrice(product.price)">
+			</div>
+		</div>
+		<div class="field" align="right">
+			<a href="#/" class="ui button">Cancel</a>
+			<button class="ui negative button" ng-click="delete()" ng-if="product._id">Delete</button>
+			<button class="ui positive button">Save</button>
+		</div>
+
+		<div class="ui active inverted dimmer" ng-if="loading">
+			<div class="ui text loader">Loading content...</div>
+		</div>
+	</form>
+</div>

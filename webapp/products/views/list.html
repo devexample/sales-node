@@ -1,0 +1,26 @@
+<div ng-controller="ProductsListController">
+	<div class="ui basic segment layout _loader" ng-if="__httpStack.length">
+		<div class="ui active inverted dimmer">
+			<div class="ui text loader">Loading...</div>
+		</div>
+	</div>
+
+	<div class="ui error message" ng-if="error">
+		{{error}}
+	</div>
+	
+	<div align="right">
+		<a href="#/add" class="ui teal button">New product</a>
+	</div>
+	<br>
+
+	<div class="ui very relaxed divided list">
+		<div class="ui item" ng-repeat="product in products | orderBy:'name'">
+			<div class="right floated content">
+				<a href="#/{{product._id}}" class="ui button">Edit</a>
+			</div>
+			<div class="header">{{product.name}}</div>
+			<div class="description">{{product.price | currency:'$'}}</div>
+		</div>
+	</div>
+</div>

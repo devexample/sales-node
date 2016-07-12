@@ -1,0 +1,46 @@
+<html ng-app="app" ng-controller="MainController as app">
+<head>
+	<meta charset="UTF-8">
+	
+	<title>Sales Example</title>
+
+	<!-- Semantic UI  -->
+	<link rel="stylesheet" type="text/css" href="/public/libs/semantic/semantic.min.css">
+	<!-- Style of application  -->
+	<link rel="stylesheet" type="text/css" href="/public/css/style.css">
+	
+	<!-- Angular JS -->
+	<script type="text/javascript" src="/public/libs/angular/angular.min.js"></script>
+	<!-- App routes -->
+	<script type="text/javascript" src="/public/libs/angular_ui_router/angular-ui-router.min.js"></script>
+	<script type="text/javascript" src="/public/libs/oc_lazy_load/ocLazyLoad.min.js"></script>
+	<script type="text/javascript" src="/public/js/products.routes.js"></script>
+	<!-- App routes -->
+	<script type="text/javascript" src="/public/libs/angular_validator/angular-validator.min.js"></script>
+	<!-- App module -->
+	<script type="text/javascript" src="/public/js/app.module.js"></script>
+	
+</head>
+<body>
+	<header>
+		<div class="ui inverted secondary menu">
+			<a href="/" class=" header item">Sales Example</a>
+			<div class="right menu item">
+				<a href="" class="header item">{{app.user.name}}</a>
+				<button class="ui negative button" ng-click="app.signOut();"><i class="sign out icon"></i>Sing out</button>
+			</div>
+		</div>
+	</header>
+
+	<main>
+		<div class="layout menu" align="center">
+			<div class="ui secondary compact menu">
+				<a href="/products" class="active item">Products</a>
+				<a href="/clients" class="item">Clients</a>
+				<a href="/sales" class="item">Sales</a>
+			</div>
+		</div>
+		<div ui-view></div>
+	</main>
+</body>
+</html>
