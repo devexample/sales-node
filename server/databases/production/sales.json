@@ -1,0 +1,9 @@
+{
+    "provider" : "MongoDB",
+    "server": "localhost",
+    "port": 27017,
+    "name": "sale_example",
+    "security": false,
+    "user": "admin",
+    "password": "123"
+}

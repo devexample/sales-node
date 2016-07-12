@@ -1,4 +1,4 @@
-<html ng-app="app" ng-controller="MainController as main">
+<html ng-app="app" ng-controller="MainController as app">
 <head>
 	<meta charset="UTF-8">
 	
@@ -26,7 +26,7 @@
 		<div class="ui inverted secondary menu">
 			<a href="/" class=" header item">Sales Example</a>
 			<div class="right menu item">
-				<a href="" class="header item">User name</a>
+				<a href="" class="header item">{{app.user.name}}</a>
 			</div>
 		</div>
 	</header>

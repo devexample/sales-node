@@ -1,4 +1,4 @@
-<html ng-app="app.index" ng-controller="IndexController as index">
+<html ng-app="app.index" ng-controller="IndexController as app">
 <head>
 	<meta charset="UTF-8">
 	
@@ -12,14 +12,14 @@
 	<!-- Angular JS -->
 	<script type="text/javascript" src="/public/libs/angular/angular.min.js"></script>
 	<!-- Index module -->
-	<script type="text/javascript" src="/public/js/index.module.js"></script>
+	<script type="text/javascript" src="/public/js/index.controller.js"></script>
 </head>
 <body>
 	<header>
 		<div class="ui inverted secondary menu">
 			<a href="/" class=" header item">Sales Example</a>
 			<div class="right menu item">
-				<a href="" class="header item">User name</a>
+				<a href="" class="header item">{{app.user.name}}</a>
 			</div>
 		</div>
 	</header>
