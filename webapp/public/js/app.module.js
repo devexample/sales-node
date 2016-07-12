@@ -15,8 +15,6 @@
 
 	function MainController( $scope, $http ){
 		$scope.__httpStack = [];
-		var vm = this;
-		
 		$scope.__httpStack.push(1);
 		$http.get("/api/user/info")
 		.success(function( data ){
@@ -26,5 +24,14 @@
 		}).finally(function(){
 			$scope.__httpStack.pop();
 		});
+
+		var vm = this;
+
+		vm.signOut = function(){
+			localStorage.removeItem("SalesExample_token");
+			sessionStorage.removeItem("SalesExample_token");
+			document.cookie = "SalesExample_token=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+			location.reload();
+		};
 	}
 })();
