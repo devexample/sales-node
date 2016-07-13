@@ -1,7 +1,6 @@
 # Sales example for MEAN
 ## How to install?
-This application is developed in Node JS 4+, before to run the application you will need
-to do:
+This application is developed in Node JS 4+, before to run the application you need to do:
 
 	npm install
 
