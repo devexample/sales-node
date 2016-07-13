@@ -31,11 +31,7 @@ router.delete("/api/products/:id", auth.api, productsCtrl.delete);
 // Sales =======================================================================
 var salesCtrl = require("./controllers/sales")( databases );
 router.post("/api/sales", auth.api, salesCtrl.create);
-router.get("/api/sales", auth.api, salesCtrl.read);
 router.get("/api/sales/client/:clientID", auth.api, salesCtrl.readByClient);
-router.get("/api/sales/:id", auth.api, salesCtrl.readOne);
-router.put("/api/sales", auth.api, salesCtrl.update);
-router.delete("/api/sales/:id", auth.api, salesCtrl.delete);
 // Users =======================================================================
 var userCtrl = require("./controllers/users")( databases );
 router.post("/api/sign-in", userCtrl.signIn);

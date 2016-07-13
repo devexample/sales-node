@@ -6,38 +6,6 @@ module.exports = function( database ){
 	var User = database.sales.model("user");
 
 	return {
-		// create: function( req, res ){
-		// 	var user = new User(req.body);
-		// 	user.save(function( error ){
-		// 		if( error ){
-		// 			var message = "There was an error while trying to save the user.";
-		// 			if( config.developMode ) message = error.message;
-		// 			res.status(500).send(message);
-		// 		} else res.json(user);
-		// 	});
-		// },
-		// read: function( req, res ){
-		// 	User.find(function( error, data ){
-		// 		if( error ){
-		// 			var message = "There was an error while trying to read the users.";
-		// 			if( config.developMode ) message = error.message;
-		// 			res.status(500).send(message);
-		// 		} else res.json(data);
-		// 	});
-		// },
-		// readOne: function( req, res ){
-		// 	var match = {
-		// 		_id: req.params.id
-		// 	};
-
-		// 	User.findOne(match, function( error, data ){
-		// 		if( error ){
-		// 			var message = "There was an error while trying to read the user.";
-		// 			if( config.developMode ) message = error.message;
-		// 			res.status(500).send(message);
-		// 		} else res.json(data);
-		// 	});
-		// },
 		signedInInfo: function( req, res ){
 			var match = {
 				_id: req.user.id
@@ -81,33 +49,5 @@ module.exports = function( database ){
 				}
 			});
 		}
-		// update: function( req, res ){
-		// 	var match = { _id: req.body._id };
-		// 	var set = {
-		// 		$set: {
-		// 			name: req.body.name,
-		// 			email: req.body.email
-		// 		}
-		// 	};
-
-		// 	User.update(match, set, function( error ){
-		// 		if( error ){
-		// 			var message = "There was an error while trying to update the users.";
-		// 			if( config.developMode ) message = error.message;
-		// 			res.status(500).send(message);
-		// 		} else res.send("User updated successfully");
-		// 	});
-		// },
-		// delete: function( req, res ){
-		// 	var match = { _id: req.params.id };
-
-		// 	User.remove(match, function( error ){
-		// 		if( error ){
-		// 			var message = "There was an error while trying to remove the users.";
-		// 			if( config.developMode ) message = error.message;
-		// 			res.status(500).send(message);
-		// 		} else res.send("User removed successfully");
-		// 	});
-		// }
 	}
 };

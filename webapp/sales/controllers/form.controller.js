@@ -57,6 +57,23 @@
 		// 	product.total = product && product.price && product.quantity ? product.price * product.quantity : '';
 		// };
 
+		$scope.removeProduct = function( product ){
+			for (var i = 0; i < $scope.sale.products.length; i++) {
+				if( $scope.sale.products[i]._id == product._id ){
+					$scope.products.push(product);
+					$scope.sale.products.splice(i, 1);
+					break
+				}
+			};
+
+			// Calculate total due
+			var total = 0;
+			for (var i = 0; i < $scope.sale.products.length; i++) {
+				total += $scope.sale.products[i].price * $scope.sale.products[i].quantity;
+			}; // Set total due
+			$scope.sale.total = total;
+		};
+
 		$scope.showAddProduct = function( value ){
 			$scope.addProduct = value;
 		};

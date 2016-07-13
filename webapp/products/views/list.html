@@ -23,4 +23,8 @@
 			<div class="description">{{product.price | currency:'$'}}</div>
 		</div>
 	</div>
+
+	<div class="ui info message" ng-if="!products.length">
+		There is not products in the database
+	</div>
 </div>
