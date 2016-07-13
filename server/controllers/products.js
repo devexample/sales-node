@@ -6,6 +6,10 @@ module.exports = function( database ){
 
 	return {
 		create: function( req, res ){
+			// Validate for required fields
+			if( !req.body.name ){ res.status(400).send("Name is required in the request."); return false; }
+			if( !req.body.price ){ res.status(400).send("Price is required in the request."); return false; }
+
 			var product = new Product(req.body);
 			product.save(function( error ){
 				if( error ){
@@ -38,6 +42,10 @@ module.exports = function( database ){
 			});
 		},
 		update: function( req, res ){
+			// Validate for required fields
+			if( !req.body.name ){ res.status(400).send("Name is required in the request."); return false; }
+			if( !req.body.price ){ res.status(400).send("Price is required in the request."); return false; }
+
 			var match = { _id: req.body._id };
 			var set = {
 				$set: {
@@ -64,6 +72,6 @@ module.exports = function( database ){
 					res.status(500).send(message);
 				} else res.send("Product deleted successfully.");
 			});
-		},
+		}
 	}
 };
