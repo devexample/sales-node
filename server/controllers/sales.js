@@ -8,7 +8,7 @@ module.exports = function( database ){
 		create: function( req, res ){
 			// Validate for required fields
 			if( !req.body.client ){ res.status(400).send("Client is required in the request."); return false; }
-			if( !req.body.products || req.body.products.length ){ res.status(400).send("Products are required in the request."); return false; }
+			if( !req.body.products || !req.body.products.length ){ res.status(400).send("Products are required in the request."); return false; }
 
 			var sale = new Sale(req.body);
 			sale.save(function( error ){
